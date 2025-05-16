@@ -6,7 +6,7 @@ using WebApi.Models;
 
 namespace WebApi.Services;
 
-public class EventService(IEventRepository eventRepository)
+public class EventService(IEventRepository eventRepository) : IEventService
 {
     private readonly IEventRepository _eventRepository = eventRepository;
 
