@@ -10,6 +10,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("EventsDb")));
 builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IPackageRepository, PackageRepository>();
 builder.Services.AddScoped<IEventService, EventService>();
 
 var app = builder.Build();

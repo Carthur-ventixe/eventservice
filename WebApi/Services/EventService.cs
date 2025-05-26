@@ -17,7 +17,7 @@ public class EventService(IEventRepository eventRepository) : IEventService
         var result = await _eventRepository.AddAsync(entity);
 
         if (!result.Success)
-            return new EventResult { Success = false, Error = "Could not create event" };
+            return new EventResult { Success = false, Error = "Error creating event" };
 
         return new EventResult { Success = true, };
     }
@@ -43,4 +43,5 @@ public class EventService(IEventRepository eventRepository) : IEventService
 
         return new EventResult<EventModel?> { Success = false, Error = "NotFound" };
     }
+
 }

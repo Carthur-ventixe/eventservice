@@ -1,4 +1,5 @@
 ﻿using WebApi.Data.Entities;
+using WebApi.Models;
 
 namespace WebApi.Data.Repositories;
 

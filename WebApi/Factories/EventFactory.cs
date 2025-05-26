@@ -14,7 +14,7 @@ public static class EventFactory
             Description = model.Description,
             Image = model.Image,
             Location = model.Location,
-            Price = model.Price,
+            StartPrice = model.StartPrice
         };
     }
 
@@ -28,7 +28,15 @@ public static class EventFactory
             Description = entity.Description,
             Image = entity.Image,
             Location = entity.Location,
-            Price = entity.Price,
+            StartPrice = entity.StartPrice,
+            Packages = entity.Packages.Select(x => new PackageModel
+            {
+                Id = x.Package.Id,
+                Title = x.Package.Title,
+                Position = x.Package.Position,
+                Placement = x.Package.Placement,
+                Price = x.Price,
+            })
         };
     }
 }

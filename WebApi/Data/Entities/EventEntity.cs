@@ -14,9 +14,9 @@ public class EventEntity
     public string Description { get; set; } = null!;
     public string? Image { get; set; }
     public string Location { get; set; } = null!;
+    public decimal StartPrice { get; set; }
 
-    [Column(TypeName = "decimal(18,2)")]
-    public decimal Price { get; set; }
+    public ICollection<EventPackageEntity> Packages { get; set; } = [];
 }
 
 

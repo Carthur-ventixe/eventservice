@@ -10,5 +10,6 @@ public class EventModel
     public string Description { get; set; } = null!;
     public string? Image { get; set; }
     public string Location { get; set; } = null!;
-    public decimal Price { get; set; }
+    public decimal StartPrice { get; set; }
+    public IEnumerable<PackageModel> Packages { get; set; } = [];
 }
