@@ -14,6 +14,8 @@ public class EventService(IEventRepository eventRepository) : IEventService
     {
         var entity = EventFactory.CreateEntity(model);
 
+
+
         var result = await _eventRepository.AddAsync(entity);
 
         if (!result.Success)

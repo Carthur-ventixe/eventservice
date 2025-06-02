@@ -10,4 +10,5 @@ public class CreateEventModel
     public string? Image { get; set; }
     public string Location { get; set; } = null!;
     public decimal StartPrice { get; set; }
+    public List<EventPackageModel> EventPackages { get; set; } = [];
 }

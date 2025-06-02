@@ -14,7 +14,12 @@ public static class EventFactory
             Description = model.Description,
             Image = model.Image,
             Location = model.Location,
-            StartPrice = model.StartPrice
+            StartPrice = model.StartPrice,
+            Packages = model.EventPackages.Select(x => new EventPackageEntity
+            {
+                PackageId = x.PackageId,
+                Price = x.PackagePrice
+            }).ToList(),
         };
     }
 
