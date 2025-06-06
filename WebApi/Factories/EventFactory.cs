@@ -41,6 +41,7 @@ public static class EventFactory
                 Position = x.Package.Position,
                 Placement = x.Package.Placement,
                 Price = x.Price,
+                PackageId = x.PackageId,
             })
         };
     }

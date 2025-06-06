@@ -9,4 +9,5 @@ public class PackageModel
     public string? Position { get; set; }
     public string? Placement { get; set; }
     public decimal Price { get; set; }
+    public int PackageId { get; set; }
 }

@@ -1,3 +1,4 @@
+using Azure.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Data.Contexts;
 using WebApi.Data.Repositories;
@@ -5,12 +6,20 @@ using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var keyVaultUrl = builder.Configuration["AzureKeyVault:VaultUri"];
+
+if (!string.IsNullOrEmpty(keyVaultUrl))
+{
+    var credential = new DefaultAzureCredential();
+    builder.Configuration.AddAzureKeyVault(new Uri(keyVaultUrl), credential);
+}
+
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddGrpc();
 
-builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("EventsDb")));
+builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IPackageRepository, PackageRepository>();
 builder.Services.AddScoped<IEventService, EventService>();
